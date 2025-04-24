@@ -24,7 +24,6 @@ This project implements two deep learning models for classifying bird species fr
 - numpy
 - pandas
 - matplotlib
-- pydub
 - torch
 - torchvision
 - tqdm
