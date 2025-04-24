@@ -22,6 +22,7 @@ def generate_spectrograms(input_dir, output_dir, sample_rate=32000, duration=5, 
             output_path = os.path.join(output_label_dir, file.replace('.ogg', '.png'))
 
             try:
+                # Generating the actual spectrograms
                 y, sr = librosa.load(input_path, sr=sample_rate, duration=duration)
                 mel = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=n_mels)
                 mel_db = librosa.power_to_db(mel, ref=np.max)

@@ -24,8 +24,10 @@ def train_model(model, train_loader, val_loader, n_epochs, lr, device, criterion
         for images, labels in loop:
             images, labels = images.to(device), labels.to(device)
             optimizer.zero_grad()
+            #forward pass
             outputs = model(images)
             loss = criterion(outputs, labels)
+            #backprop
             loss.backward()
             optimizer.step()
             running_loss += loss.item() * images.size(0)
@@ -39,6 +41,7 @@ def train_model(model, train_loader, val_loader, n_epochs, lr, device, criterion
         with torch.no_grad():
             for images, labels in val_loader:
                 images, labels = images.to(device), labels.to(device)
+                #only forward pass since no training
                 outputs = model(images)
                 loss = criterion(outputs, labels)
                 val_loss += loss.item() * images.size(0)
@@ -48,6 +51,7 @@ def train_model(model, train_loader, val_loader, n_epochs, lr, device, criterion
         print(f"Epoch {epoch+1}/{n_epochs} | Train Loss: {avg_train_loss:.4f} | Val Loss: {avg_val_loss:.4f}")
     return model, train_losses, val_losses
 
+# Just Saves a plot of training and validation losses vs epochs
 def training_plots(train_losses,val_losses,n_epochs,title):
     plt.figure(figsize=(10,6))
     plt.plot(range(1, n_epochs+1), train_losses, label='Training Loss', marker='o')
@@ -61,6 +65,7 @@ def training_plots(train_losses,val_losses,n_epochs,title):
     plt.savefig(save_path, bbox_inches='tight')
     print(f"Training Loss plot obtained and saved at: {save_path}")
 
+# Generates Confusion Matrix and Accuracy value for any model
 def test_model(model, data_loader, device):
     model.eval()
     preds = []
@@ -77,7 +82,7 @@ def test_model(model, data_loader, device):
     cm = confusion_matrix(targets, preds)
     return acc , cm
 
-
+# Saves the earlier generated confusion matrix in a clean way
 def confusion_mat(cm, class_names,title):
     num = len(class_names)
     fig , ax = plt.subplots()
