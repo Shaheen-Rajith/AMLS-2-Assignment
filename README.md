@@ -6,13 +6,13 @@ This project implements two deep learning models for classifying bird species fr
  - main.py Main File, running it will train and evaluate both models.
  - misc.ipynb Same code as main.py but in notebook format for easier trialing.
  - A/ All Source Code:
-    + cnn_model.py Custom CNN model
-    + data_prepoc.py Contains functions that handle data preprocessing
+    + cnn_model.py Custom CNN model Code
+    + data_preproc.py Contains functions that handle data preprocessing
     + spec_gen.py contains code that converts sound files to mel spectrograms while maintaining folder structure
-    + trans_model.py Transfer Learning Model
+    + trans_model.py Transfer Learning Model Code
     + utils.py contains code for training, testing, and plotting loss curves and confusion matrices
 - Datasets/
-    + Sound-Files , contains the entire dataset in the form of .ogg grouped by species
+    + Sound-Files , contains the entire dataset in the form of .ogg sound files grouped by species
     + Spec-Images , contains the entire dataset in the form of mel spectrogram images grouped by species
 - Results , used for storing loss curves and confusion matrices pics
 - env/
@@ -30,3 +30,8 @@ This project implements two deep learning models for classifying bird species fr
 - librosa
 - scikit-learn
 - timm
+
+## Instructions
+- git clone the repo, go into the env folder and open terminal
+- run "conda env create -f environment.yml" to create "BirdCLEF" environment with all necessary modules
+- run main.py to train both models, obtain loss plots, accuracy figures and confusion matrices (takes around 1 hour on my laptop with Nvidia GPU) 
