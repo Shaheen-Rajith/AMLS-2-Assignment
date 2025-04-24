@@ -10,4 +10,3 @@ tqdm
 librosa
 scikit-learn
 timm
-torchsummary

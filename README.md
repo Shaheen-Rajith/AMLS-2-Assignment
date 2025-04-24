@@ -1,2 +1,33 @@
-# README
+# Bird Species Classifier from Audio using CNN and EfficientNet_B0 (AMLS-II Project)
 
+This project implements two deep learning models for classifying bird species from audio clips: a custom convolutional neural network (CNN) and a transfer learning approach using EfficientNet_B0. Audio files are converted into Mel-spectrogram images and classified into one of 24 bird species.
+
+## Project Structure
+ - main.py Main File, running it will train and evaluate both models.
+ - misc.ipynb Same code as main.py but in notebook format for easier trialing.
+ - A/ All Source Code:
+    + cnn_model.py Custom CNN model
+    + data_prepoc.py Contains functions that handle data preprocessing
+    + spec_gen.py contains code that converts sound files to mel spectrograms while maintaining folder structure
+    + trans_model.py Transfer Learning Model
+    + utils.py contains code for training, testing, and plotting loss curves and confusion matrices
+- Datasets/
+    + Sound-Files , contains the entire dataset in the form of .ogg grouped by species
+    + Spec-Images , contains the entire dataset in the form of mel spectrogram images grouped by species
+- Results , used for storing loss curves and confusion matrices pics
+- env/
+    + environment.yml , code to create a new conda env called "BirdCLEF" with all necessary modules
+    + requirements.txt, all needed modules
+- README.md , This file
+
+## All Packages needed to run the code
+- numpy
+- pandas
+- matplotlib
+- pydub
+- torch
+- torchvision
+- tqdm
+- librosa
+- scikit-learn
+- timm
