@@ -126,7 +126,7 @@ torch.cuda.empty_cache()
 
 # ======================================================================================================================
 ## Print out your results with following format:
-print('TA (Self CNN):{:.5f},{:.5f}; TA (Transfer Learning):{:.5f},{:.5f};'.format(acc_A_train_self, acc_A_test_self,
+print('TA (Custom CNN):{:.5f},{:.5f}; TA (Transfer Learning):{:.5f},{:.5f};'.format(acc_A_train_self, acc_A_test_self,
                                                         acc_A_train_trans, acc_A_test_trans))
 
 # If you are not able to finish a task, fill the corresponding variable with 'TBD'. For example:
