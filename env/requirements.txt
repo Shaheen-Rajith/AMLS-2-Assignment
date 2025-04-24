@@ -1,0 +1,13 @@
+jupyter
+jupyterlab
+numpy
+pandas
+matplotlib
+pydub
+torch
+torchvision
+tqdm
+librosa
+scikit-learn
+timm
+torchsummary
